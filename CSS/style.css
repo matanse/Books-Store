@@ -22,7 +22,7 @@ header {
   background-color: rgb(240, 163, 63);
   background-position: bottom;
   border-radius: 30%;
-  font-size: 7em;
+  font-size: 8vw;
   font-family: "Times New Roman", Times, serif;
 }
 
@@ -94,20 +94,4 @@ nav {
 
 footer {
   grid-area: footer;
-}
-
-@media screen and (max-width: 1045px) {
-  .header_title > h1 {
-    font-size: 5em;
-  }
-}
-@media screen and (max-width: 800px) {
-  .header_title > h1 {
-    font-size: 3.5em;
-  }
-}
-@media screen and (max-width: 570px) {
-  .header_title > h1 {
-    font-size: 2.5em;
-  }
 }
