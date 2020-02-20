@@ -1,45 +1,113 @@
+.container {
+  max-width: none;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+    "menu   header header header header header header header header header header header "
+    "menu   books  books  books  books  books  books  books  books  books  books  books  "
+    "footer footer footer footer footer footer footer footer footer footer footer footer ";
+}
+
+header {
+  grid-area: header;
+  margin-bottom: 5%;
+}
+
+.header_title {
+  display: flex;
+  align-items: center;
+}
+
+.header_title > h1 {
+  background-color: rgb(240, 163, 63);
+  background-position: bottom;
+  border-radius: 30%;
+  font-size: 7em;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.book_store_logo {
+  width: 110px;
+  height: 120px;
+}
+
+nav {
+  grid-area: menu;
+}
+
+.row {
+  grid-area: books;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 20px;
+  padding-top: 50px;
+  padding-right: 0;
+  background-color: #f7c63fab;
+}
+
 .flip-card {
-  background-color: transparent;
-  width: 300px;
-  height: 200px;
-  border: 1px solid #f1f1f1;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  border: none;
+  margin-bottom: 10em;
+  max-width: 210px;
+  margin-right: 2em;
 }
 
-/* This container is needed to position the front and back side */
 .flip-card-inner {
-  position: relative;
+  min-height: 300px;
+}
+
+.flip-card-front > img {
   width: 100%;
   height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
+  border-radius: 6px;
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-/* Position the front and back side */
-.flip-card-front,
 .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(78, 58, 58);
+  color: rgb(169, 226, 226);
+  border-radius: 6px;
+  padding: 0 2px;
 }
 
-/* Style the front side (fallback if image is missing) */
-.flip-card-front {
-  background-color: #bbb;
-  color: black;
+.flip-card-back > h1 {
+  font-size: 20px;
+}
+.flip-card-back > p,
+.flip-card-back > button {
+  font-size: smaller;
 }
 
-/* Style the back side */
-.flip-card-back {
-  background-color: dodgerblue;
-  color: white;
-  transform: rotateY(180deg);
+.button {
+  width: 60%;
+  margin-bottom: 10px;
+}
+
+.button:hover {
+  background-color: rgb(191, 209, 91);
+}
+
+footer {
+  grid-area: footer;
+}
+
+@media screen and (max-width: 1045px) {
+  .header_title > h1 {
+    font-size: 5em;
+  }
+}
+@media screen and (max-width: 800px) {
+  .header_title > h1 {
+    font-size: 3.5em;
+  }
+}
+@media screen and (max-width: 570px) {
+  .header_title > h1 {
+    font-size: 2.5em;
+  }
 }

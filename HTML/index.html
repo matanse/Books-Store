@@ -3,15 +3,110 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../CSS/style coped.css" />
     <link rel="stylesheet" href="../CSS/style.css" />
-    <title>Document</title>
+    <title>Book store</title>
   </head>
   <body>
-    <div class="flip-card">
+    <div class="container">
+      <header>
+          <div class="header_title">
+          <img class="book_store_logo" src="../IMG/dr-kimberly-brodeur-whyte-avenue-psychological-logo.png" alt="">
+          <h1>Crazy Book Store</h1>
+          </div>
+          <div class="topnav">
+            <a class="active" href="#">
+                <!-- Use any element to open the sidenav -->
+                <span onclick="openNav()">Filter By...</span>
+            </a>
+            
+            <input type="text" placeholder="Search..">
+            </div>
+          
+        </header>
+      <nav>
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+            >&times;</a
+          >
+          
+          <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Genre</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#about">Award winning</a>
+                <a href="#base">Fantasy</a>
+                <a href="#blog">Sci-Fi</a>
+                <a href="#contact">Humor</a>
+                <a href="#custom">Teen</a>
+                <a href="#support">Kids</a>
+                <a href="#tools">Learning</a>
+            </div>
+            </div>
+
+            <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Language</button>
+            <div id="myDropdown" class="dropdown-content">
+                <!-- for example -->
+                <a href="#about">About</a>
+                
+            </div>
+            </div>
+
+
+
+            <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Most Popular</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#about">Comedy</a>
+                <a href="#base">Adult</a>
+                <a href="#blog">Learning</a>
+                <a href="#contact">Kids</a>
+            </div>
+            </div>
+
+            <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Author</button>
+            <div id="myDropdown" class="dropdown-content">
+                <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+            </div>
+            </div>
+
+                        
+
+            <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Price</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#about">About</a>
+                <a href="#base">Base</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+                <a href="#custom">Custom</a>
+                <a href="#support">Support</a>
+                <a href="#tools">Tools</a>
+            </div>
+            </div>
+    
+        </div>
+
+        <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+        <div id="main">        
+      </nav>
+      <div id="books_location" class="row"></div>
+      </div>
+    </div>
+
+    <!-- <div class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
+          fuck
           <img
-            src="img_avatar.png"
+            src="https://preview.ibb.co/bC5ELQ/alex_min.png"
             alt="Avatar"
             style="width:300px;height:300px;"
           />
@@ -20,9 +115,35 @@
           <h1>John Doe</h1>
           <p>Architect & Engineer</p>
           <p>We love that guy</p>
+          <button class="button" id="myBtn">mkcdmkcmd</button>
         </div>
       </div>
     </div>
+    <div id="myModal" class="modal">
+      Modal content
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>
+          Some text in thelsdl..
+        </p>
+      </div>
+    </div> -->
+    <footer>lfgk;sdfkbglsdfmfgmdsbmflb</footer>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="../JS/main.js"></script>
     <script src="../JS/functions.js"></script>
