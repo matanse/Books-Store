@@ -1,53 +1,50 @@
-const create_book_cards = (book_list, location_by_id) => {
-  //   const doc_body = document.getElementsByTagName(body);
-  const cards_location = document.getElementById(location_by_id);
-  let count = 0;
+const create_book_cards = book_list => {
+  let books_count = 0;
   for (book of book_list) {
-    count += 1;
-    const flip_card = create_card(
+    books_count += 1;
+    const return_more_btn = create_card(
       book.cover,
       book.title,
       book.description,
       book.language,
-      count
+      books_count
     );
-    // create_model_popup(count, book.description);
-    cards_location.appendChild(flip_card);
+    create_model_popup(books_count, book.description, return_more_btn);
   }
 };
 
-const create_model_popup = (count, description) => {
-  const book_info_model = document.createElement("div");
-  const book_info_model_content = document.createElement("div");
-  const book_info_model_span_tag = document.createElement("span");
-  const book_info_model_p_tag = document.createElement("p");
+// -----   creates the model popup and close
+const create_model_popup = (count, description, more_btn) => {
+  const model_location = document.getElementById("model_location");
 
-  //   doc_body.appendChild(book_info_model);
-  book_info_model.appendChild(book_info_model_content);
-  book_info_model_content.appendChild(book_info_model_span_tag);
-  book_info_model_content.appendChild(book_info_model_p_tag);
-  book_info_model.className = "modal";
-  book_info_model.setAttribute("id", `${count}_model`);
-  book_info_model_content.className = "modal-content";
-  book_info_model_span_tag.className = "close";
+  const book_model = document.createElement("div");
+  const book_model_content = document.createElement("div");
+  const book_model_span_tag = document.createElement("span");
+  const book_model_p_tag = document.createElement("p");
 
-  book_info_model_span_tag.innerHTML = "&times;";
-  book_info_model_p_tag.innerHTML = description;
+  model_location.appendChild(book_model);
+  book_model.appendChild(book_model_content);
+  book_model_content.appendChild(book_model_span_tag);
+  book_model_content.appendChild(book_model_p_tag);
+  book_model.className = "modal";
+  book_model.setAttribute("id", `model_${count}`);
+  book_model_content.className = "modal-content";
+  book_model_span_tag.setAttribute("id", `close_${count}`);
+  book_model_span_tag.setAttribute("class", "close");
 
-  // Get the button that opens the modal
-  const card_btn = document.getElementById(`${count}_btn`);
+  book_model_span_tag.innerHTML = "&times;";
+  book_model_p_tag.innerHTML = description;
 
   // Get the modal
-  const modal = document.getElementById(`${count}_model`);
+  const modal = document.getElementById(`model_${count}`);
 
   // Get the <span> element that closes the modal
-  const span = document.getElementsByClassName("close")[0];
+  const span = document.getElementById(`close_${count}`);
 
   // When the user clicks on the button, open the modal
-  card_btn.onclick = function() {
+  more_btn.onclick = function() {
     modal.style.display = "block";
   };
-
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
     modal.style.display = "none";
@@ -61,6 +58,7 @@ const create_model_popup = (count, description) => {
   };
 };
 
+// ------ creates card by card and return the button for the model
 const create_card = (
   cover,
   title,
@@ -68,6 +66,8 @@ const create_card = (
   language,
   card_number_for_button_id
 ) => {
+  const cards_location = document.getElementById("books_location");
+
   const flip_card = document.createElement("div");
   const flip_card_inner = document.createElement("div");
   const flip_card_front = document.createElement("div");
@@ -83,9 +83,11 @@ const create_card = (
   flip_card_front.className = "flip-card-front";
   flip_card_back.className = "flip-card-back";
   more_button.className = "button";
-  more_button.setAttribute("id", `${card_number_for_button_id}_btn`);
+  more_button.setAttribute("id", `btn_${card_number_for_button_id}`);
+
   flip_card_front_img.className = "book-front-cover-img";
 
+  cards_location.appendChild(flip_card);
   flip_card.appendChild(flip_card_inner);
   flip_card_inner.appendChild(flip_card_front);
   flip_card_front.appendChild(flip_card_front_img);
@@ -100,7 +102,7 @@ const create_card = (
   flip_card_back_p.innerHTML = description;
   flip_card_back_lang.innerHTML = `Language: ${language.toUpperCase()}`;
   more_button.innerHTML = "click to see cover";
-  return flip_card;
+  return more_button;
 };
 
 // -------- model example ---------

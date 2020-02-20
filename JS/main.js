@@ -3,8 +3,7 @@ const fetch_data = () => {
     .then(response => response.json())
 
     .then(data => {
-      console.log(data.books);
-      create_book_cards(data.books, "books_location", "container");
+      create_book_cards(data.books);
     })
     .catch(error => {
       console.log("Error:", error);
