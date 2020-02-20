@@ -4,6 +4,7 @@ const fetch_data = () => {
 
     .then(data => {
       create_book_cards(data.books);
+      filter(data.books);
     })
     .catch(error => {
       console.log("Error:", error);

@@ -1,5 +1,10 @@
 const create_book_cards = book_list => {
   let books_count = 0;
+  console.log(book_list);
+  const model_location = document.getElementById("model_location");
+  const cards_location = document.getElementById("books_location");
+  model_location.innerHTML = "";
+  cards_location.innerHTML = "";
   for (book of book_list) {
     books_count += 1;
     const return_more_btn = create_card(
@@ -9,31 +14,32 @@ const create_book_cards = book_list => {
       book.language,
       books_count
     );
-    create_model_popup(books_count, book.description, return_more_btn);
+    create_model_popup(books_count, book.detail, return_more_btn);
   }
 };
 
 // -----   creates the model popup and close
-const create_model_popup = (count, description, more_btn) => {
+const create_model_popup = (count, book_img, more_btn) => {
   const model_location = document.getElementById("model_location");
-
   const book_model = document.createElement("div");
   const book_model_content = document.createElement("div");
   const book_model_span_tag = document.createElement("span");
-  const book_model_p_tag = document.createElement("p");
+  const book_model_img = document.createElement("img");
 
   model_location.appendChild(book_model);
   book_model.appendChild(book_model_content);
   book_model_content.appendChild(book_model_span_tag);
-  book_model_content.appendChild(book_model_p_tag);
+  book_model_content.appendChild(book_model_img);
+
   book_model.className = "modal";
   book_model.setAttribute("id", `model_${count}`);
   book_model_content.className = "modal-content";
   book_model_span_tag.setAttribute("id", `close_${count}`);
   book_model_span_tag.setAttribute("class", "close");
+  book_model_img.setAttribute("src", book_img);
 
   book_model_span_tag.innerHTML = "&times;";
-  book_model_p_tag.innerHTML = description;
+  //   book_model_img.innerHTML = description;
 
   // Get the modal
   const modal = document.getElementById(`model_${count}`);
@@ -67,7 +73,6 @@ const create_card = (
   card_number_for_button_id
 ) => {
   const cards_location = document.getElementById("books_location");
-
   const flip_card = document.createElement("div");
   const flip_card_inner = document.createElement("div");
   const flip_card_front = document.createElement("div");
@@ -105,10 +110,6 @@ const create_card = (
   return more_button;
 };
 
-// -------- model example ---------
-
-// --------  end model function example -------
-
 // ---------   bootstrap side bar ------
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
@@ -134,21 +135,3 @@ toggle between hiding and showing the dropdown content */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
-
-// -------- example of filter ---------
-
-// function filterFunction() {
-//   var input, filter, ul, li, a, i;
-//   input = document.getElementById("myInput");
-//   filter = input.value.toUpperCase();
-//   div = document.getElementById("myDropdown");
-//   a = div.getElementsByTagName("a");
-//   for (i = 0; i < a.length; i++) {
-//     txtValue = a[i].textContent || a[i].innerText;
-//     if (txtValue.toUpperCase().indexOf(filter) > -1) {
-//       a[i].style.display = "";
-//     } else {
-//       a[i].style.display = "none";
-//     }
-//   }
-// }

@@ -35,6 +35,15 @@ nav {
   grid-area: menu;
 }
 
+.topnav {
+  display: flex;
+  justify-content: space-between;
+}
+
+#search {
+  background-color: #080768 !important;
+}
+
 .row {
   grid-area: books;
   display: flex;

@@ -26,7 +26,12 @@
                 <span onclick="openNav()">Filter By...</span>
             </a>
             
-            <input type="text" placeholder="Search..">
+            <nav id="search" class="navbar navbar-light bg-light">
+                <form class="form-inline">
+                    <input id="search_input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button id="search_button" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </nav>
             </div>
           
         </header>
@@ -102,16 +107,7 @@
     </div>
 
     <div id="model_location"></div>
-    <!--
-    <div id="myModal" class="modal">
-      Modal content
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>
-          Some text in thelsdl..
-        </p>
-      </div>
-    </div> -->
+   
     <footer>lfgk;sdfkbglsdfmfgmdsbmflb</footer>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -131,5 +127,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="../JS/main.js"></script>
     <script src="../JS/functions.js"></script>
+    <script src="../JS/filter.js"></script>
   </body>
 </html>
