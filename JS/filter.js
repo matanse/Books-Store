@@ -13,7 +13,7 @@ const filter = books_list => {
           filtered_books.push(book);
         }
       }
-      create_book_cards(filtered_books);
+      controller(filtered_books);
     };
   });
 };

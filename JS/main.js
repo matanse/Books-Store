@@ -3,7 +3,7 @@ const fetch_data = () => {
     .then(response => response.json())
 
     .then(data => {
-      create_book_cards(data.books);
+      controller(data.books);
       filter(data.books);
     })
     .catch(error => {

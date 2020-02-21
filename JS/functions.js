@@ -1,6 +1,6 @@
-const create_book_cards = book_list => {
+const controller = book_list => {
   let books_count = 0;
-  console.log(book_list);
+  //   console.log(book_list);
   const model_location = document.getElementById("model_location");
   const cards_location = document.getElementById("books_location");
   model_location.innerHTML = "";
